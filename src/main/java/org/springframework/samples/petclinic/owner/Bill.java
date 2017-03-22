@@ -2,6 +2,7 @@ package org.springframework.samples.petclinic.owner;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -34,8 +35,7 @@ public class Bill {
 	@JoinColumn(name = "owner_id")
 	private Owner owner;
 	
-	
-	@OneToOne(fetch = FetchType.LAZY)
+	@OneToOne(fetch = FetchType.LAZY, mappedBy = "bill", cascade = CascadeType.ALL)
 	private Visit visit;
 	
 	@Column(name = "fecha")

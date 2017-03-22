@@ -62,7 +62,7 @@ public class Visit extends BaseEntity {
     @Column(name = "pet_id")
     private Integer petId;
 
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = "visit", cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.LAZY)
     private Bill bill;
 
     /**
@@ -72,8 +72,21 @@ public class Visit extends BaseEntity {
         this.date = new Date();
     }
 
+    
 
-    /**
+    public Bill getBill() {
+		return bill;
+	}
+
+
+
+	public void setBill(Bill bill) {
+		this.bill = bill;
+	}
+
+
+
+	/**
      * Getter for property date.
      *
      * @return Value of property date.
