@@ -57,8 +57,37 @@ public class Owner extends Person {
     @NotEmpty
     @Digits(fraction = 0, integer = 10)
     private String telephone;
-
+    
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
+    private List<Bill> listaBill;
+
+    
+    public Owner() {
+	
+	}
+    
+    public Owner(String address, String city, String telephone) {
+		
+    	super();
+		this.address = address;
+		this.city = city;
+		this.telephone = telephone;
+		
+	}
+
+    
+    
+	public List<Bill> getListaBill() {
+		return listaBill;
+	}
+
+	public void setListaBill(List<Bill> listaBill) {
+		this.listaBill = listaBill;
+	}
+
+
+
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
     private Set<Pet> pets;
 
 

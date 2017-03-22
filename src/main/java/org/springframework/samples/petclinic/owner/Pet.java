@@ -67,7 +67,22 @@ public class Pet extends NamedEntity {
     @OneToMany(cascade = CascadeType.ALL, mappedBy="petId", fetch = FetchType.EAGER)
     private Set<Visit> visits = new LinkedHashSet<>();
 
-    public void setBirthDate(Date birthDate) {
+    public Pet() {
+		
+	}
+    
+    
+   
+    public Pet(Date birthDate, PetType type, Owner owner) {
+		super();
+		this.birthDate = birthDate;
+		this.type = type;
+		this.owner = owner;
+	}
+
+
+
+	public void setBirthDate(Date birthDate) {
         this.birthDate = birthDate;
     }
 
